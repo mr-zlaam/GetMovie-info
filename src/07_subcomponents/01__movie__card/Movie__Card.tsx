@@ -31,7 +31,7 @@ function Movie__Card({ movieData }: MoviesDataProps) {
             <Loader />
           </div>
         ) : (
-          <Link to={`/all-movies/${movieData?.id}`}>
+          <Link to={`/all-movies/${movieData?.id}-`}>
             {movieData?.backdrop_path ? (
               <LazyLoadImage
                 placeholder={<div className="img__placeholder" />}
@@ -50,7 +50,7 @@ function Movie__Card({ movieData }: MoviesDataProps) {
           </Link>
         )}
         <span>
-          <Link to={`/all-movies/${movieData?.id}`} className="card__button">
+          <Link to={`/all-movies/${movieData?.id}-`} className="card__button">
             {movieData?.title}
           </Link>
         </span>

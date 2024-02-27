@@ -5,7 +5,9 @@ import { auth, db } from "../../10_firebase/firebase.config";
 import { type FilterMovieData } from "@/types";
 function Watchlist() {
   const currentUser = auth?.currentUser?.uid;
-  const [myMovieData, setmyMovieData] = useState<any | null>(null);
+  const [myMovieData, setmyMovieData] = useState<FilterMovieData[] | null>(
+    null
+  );
   const fetchWatchListData = async () => {
     try {
       const MovieRefData = collection(db, "movie");
@@ -31,7 +33,15 @@ function Watchlist() {
   }, [handleRemoveWatchListData]);
   return (
     <>
-      <section className=""></section>
+      <section className="">
+        {myMovieData?.map((movie) => {
+          return (
+            <div key={movie?.id} className="watch-card">
+              {movie?.title}
+            </div>
+          );
+        })}
+      </section>
     </>
   );
 }

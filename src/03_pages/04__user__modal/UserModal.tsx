@@ -85,12 +85,21 @@ export default function UserModal() {
               ) : (
                 <div className="status">{submitStatus}</div>
               )}
-              <button
-                className="btn__watchlist"
-                onClick={() => handleSubmit(movie)}
-              >
-                Add to watchlist
-              </button>
+              {movieId?.includes("-") ? (
+                <button
+                  className="btn__watchlist"
+                  onClick={() => handleSubmit(movie)}
+                >
+                  Add to watchlist
+                </button>
+              ) : (
+                <button
+                  className="btn__watchlist"
+                  onClick={() => handleSubmit(movie)}
+                >
+                  Remove from Watch list
+                </button>
+              )}
             </div>
           </div>
         </div>
