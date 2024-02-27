@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=Pacifico&family=Protest+Riot&display=swap");
+html {
+  font-size: 10px;
+}
+
+$font_handwriting: "Alkatra", system-ui;
+//FONTS SIZES
+
+// Small Font Size
+$font_sm_1: 1.1rem;
+$font_sm_2: 1.2rem;
+$font_sm_3: 1.4rem;
+$font_sm_4: 1.6rem;
+$font_sm_5: 2rem;
+// Medium Font Size
+$font_md_1: 2.1rem;
+$font_md_2: 2.2rem;
+$font_md_3: 2.4rem;
+$font_md_4: 2.6rem;
+$font_md_5: 3rem;
+// Large Font Size
+$font_lg_1: 3.1rem;
+$font_lg_2: 3.2rem;
+$font_lg_3: 3.4rem;
+$font_lg_4: 3.6rem;
+$font_lg_5: 4rem;
+// Large Xl Size
+$font_xl_1: 4.1rem;
+$font_xl_2: 4.2rem;
+$font_xl_3: 4.4rem;
+$font_xl_4: 4.6rem;
+$font_xl_5: 5rem;
+// Large 2Xl Size
+$font_2xl_1: 5.1rem;
+$font_2xl_2: 5.2rem;
+$font_2xl_3: 5.4rem;
+$font_2xl_4: 5.6rem;
+$font_2xl_5: 6rem;
+// Large 3Xl Size
+$font_3xl_1: 6.1rem;
+$font_3xl_2: 6.2rem;
+$font_3xl_3: 6.4rem;
+$font_3xl_4: 6.6rem;
+$font_3xl_5: 7rem;
+// Large 4Xl Size
+$font_4xl_1: 7.1rem;
+$font_4xl_2: 7.2rem;
+$font_4xl_3: 7.4rem;
+$font_4xl_4: 7.6rem;
+$font_4xl_5: 8rem;
+// Large 5Xl Size
+$font_5xl_1: 8.1rem;
+$font_5xl_2: 8.2rem;
+$font_5xl_3: 8.4rem;
+$font_5xl_4: 8.6rem;
+$font_5xl_5: 9rem;
+// Large 6Xl Size
+$font_6xl_1: 9.1rem;
+$font_6xl_2: 9.2rem;
+$font_6xl_3: 9.4rem;
+$font_6xl_4: 9.6rem;
+$font_6xl_5: 10rem;
+// Large 7Xl Size
+$font_7xl_1: 11.1rem;
+$font_7xl_2: 11.2rem;
+$font_7xl_3: 11.4rem;
+$font_7xl_4: 11.6rem;
+$font_7xl_5: 12rem;
+// Colors And Theme.
+
+$white_color: #ffffff;
+$black_color: #28282b;
+
+// cursor
+
+// Utility Classes
+
+*::selection {
+  background-color: #ffff00;
+  color: #0000ff;
+}
+
+.black_color {
+  color: $black_color;
+}
+.white_color {
+  color: $white_color;
+}
+
+a {
+  text-decoration: none;
+  color: $white_color;
+}
+
+//Global size
+html {
+  font-size: 10px;
+}
+* {
+  font-size: $font_sm_5;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Protest Riot", sans-serif;
+}
+.visible {
+  display: inline;
+}
+.invisible {
+  display: none;
+}
+//
+@mixin link_animation {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom left;
+  transition: transform 0.25s ease-out;
+}
+@mixin link_animation_common_1 {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+@mixin link_animation_common_2 {
+  position: relative;
+  padding-bottom: 20px;
+}
+.cta {
+  border: none;
+  background: none;
+}
+
+.cta a {
+  padding-bottom: 4px;
+  padding-right: 0.5rem;
+  text-decoration: none;
+}
+
+.link_animation_dark {
+  @include link_animation_common_2;
+}
+.link_animation_light {
+  @include link_animation_common_2;
+}
+
+.link_animation_dark:after {
+  @include link_animation;
+  background: #000;
+}
+.link_animation_light:after {
+  @include link_animation;
+  background: #fff;
+}
+
+.cta:hover .link_animation_dark:after {
+  @include link_animation_common_1;
+}
+.cta:hover .link_animation_light:after {
+  @include link_animation_common_1;
+}
+@media screen and (max-width: 768px) {
+  * {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #ffffff67;
+  scroll-behavior: smooth;
+}

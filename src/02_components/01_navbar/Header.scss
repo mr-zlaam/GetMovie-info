@@ -1,0 +1,118 @@
+@import "@styles";
+
+.header__section {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #28282b;
+  box-shadow: 2px 2px 4px #888888;
+
+  //navbar
+  .navigation__bar {
+    position: relative;
+    right: 5rem;
+    //anchor tags
+    .anchor__tag {
+      margin: 0 1.5rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffffffa2;
+      }
+    }
+  }
+
+  //menu icons
+  .menu__bar__icon {
+    display: none;
+  }
+}
+.btn__link {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #808080;
+  padding: 0.4375rem 1.5rem;
+  font-family: "Pacifico", cursive;
+  font-size: $font_sm_4;
+  border-radius: 8px;
+  color: #ffffff;
+  &:hover {
+    background: #8080805c;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navigation__bar__closer::before {
+    content: "";
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  //Header
+  .header__section {
+    .logo {
+      margin-left: 2rem;
+    }
+
+    .navigation__bar {
+      position: absolute;
+      z-index: 5;
+      top: 0.7rem;
+      right: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 3rem;
+      background: #28282b;
+      box-shadow: 0px 0px 14px #888888;
+      border-radius: 3rem;
+      transition: transform 0.3s linear;
+      overflow: auto;
+      .anchor__tag {
+        margin: 4rem;
+        text-align: center;
+      }
+    }
+
+    .menu__bar__icon {
+      display: inline;
+      position: absolute;
+      z-index: 5;
+      top: 2.7rem;
+      left: 2rem;
+    }
+  }
+  .visible__navbar {
+    transform: translate(0);
+  }
+  .invisible__navbar {
+    transform: translateY(-105%);
+  }
+}
+.active {
+  border-bottom: 2px solid #ffffff;
+  cursor: default;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+.not__active {
+  color: #ffffff;
+}
+@media screen and (max-width: 768px) and (max-height: 380px) {
+  .header__section {
+    .navigation__bar {
+      flex-direction: row;
+      width: 100%;
+    }
+  }
+}

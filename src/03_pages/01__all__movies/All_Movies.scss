@@ -1,0 +1,47 @@
+@import "@styles";
+
+.all__movies__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  justify-content: center;
+  & > * {
+    margin: 2rem;
+  }
+  .noresult__found {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff2d2d;
+    font-size: $font_xl_1;
+  }
+}
+.error {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffaa00da;
+  font-size: $font_lg_1;
+}
+.globe__btn__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+@media screen and (max-width: 420px) {
+  .all__movies__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: center;
+  }
+  .globe__btn__container {
+    .move__btn {
+      padding: 1rem 3rem;
+      position: relative;
+      bottom: 1rem;
+    }
+  }
+}

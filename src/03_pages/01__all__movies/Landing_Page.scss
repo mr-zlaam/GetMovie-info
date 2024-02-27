@@ -1,0 +1,59 @@
+@import "@styles";
+
+.main_landing_page {
+  user-select: none;
+  position: relative;
+  margin: 2rem 0;
+
+  .input_div {
+    position: relative;
+    max-width: 500px;
+    margin: 1rem auto;
+    background: #ffffff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    & > :first-child {
+      color: #000000;
+      margin-left: 2rem;
+      position: absolute;
+      right: 1rem;
+      font-size: $font_lg_2;
+      cursor: pointer;
+      transition: 0.3s ease;
+      transition-property: color, transform;
+
+      &:hover {
+        color: #000000ad;
+      }
+      &:active {
+        transform: scale(0.8);
+      }
+    }
+    & > :nth-child(2) {
+      padding: 2rem 5rem;
+      background: transparent;
+      position: absolute;
+      left: 0;
+      outline: none;
+      width: 90%;
+      border: none;
+      height: 100%;
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+
+  .landing_page_image_div {
+    height: fit-content;
+    img {
+      width: 100vw;
+      height: 80vh;
+      object-fit: cover;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import "@styles";
+
+.useModal__container {
+  overflow: hidden;
+  height: 90.8vh;
+  img {
+    height: 90.8vh;
+    object-fit: cover;
+    width: 100%;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  .poster__img_container {
+    border-radius: 2rem;
+    box-shadow: 0px 0px 8px #888888;
+    backdrop-filter: blur(7px);
+    margin: 1rem;
+    background: #0000008f;
+    position: fixed;
+    top: 50%;
+    overflow: auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    height: 80%;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    & img {
+      user-select: none;
+      -webkit-user-drag: none;
+      height: 100%;
+      width: 50%;
+      position: sticky;
+      top: 0;
+    }
+    .data__container {
+      margin: 1rem 2rem;
+      height: 80%;
+      padding: 2rem;
+      & .movie__title {
+        font-size: $font_xl_4;
+        text-align: center;
+        margin-top: 32px;
+      }
+      & .movie__plot {
+        @extend .movie__title;
+        font-size: $font_xl_1;
+        text-align: start;
+      }
+      & .plot__detail {
+        margin: 0 64px;
+        letter-spacing: 0.0625rem;
+        font-weight: normal;
+        font-family: $font_handwriting;
+      }
+      & .movie__rating__container {
+        & .label__tag {
+          letter-spacing: 0.0625rem;
+          margin: 2rem;
+        }
+        & .label__data {
+          margin: 0 3rem;
+          background: #ffffff;
+          height: 3.125rem;
+          width: 3.125rem;
+          color: #000000;
+          border-radius: 1.25rem;
+          padding: 0.4375rem 0.875rem;
+          font-family: $font_handwriting;
+        }
+      }
+      & .btn__watchlist__container {
+        position: relative;
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        .status {
+          position: absolute;
+          bottom: 0.4rem;
+        }
+        & .btn__watchlist {
+          cursor: pointer;
+          font-family: $font_handwriting;
+          background: #d3d3d3;
+          padding: 0.5rem 1.2rem;
+          margin-bottom: 2rem;
+          border-radius: 1rem;
+          outline: none;
+          border: none;
+          box-shadow: 2px 2px 4px #888888;
+          transition: 0.3s ease;
+          transition-property: background, transform;
+
+          &:hover {
+            background: #ffffff;
+          }
+          &:active {
+            transform: scale(1 - 0.05);
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .useModal__container {
+    .poster__img_container {
+      flex-direction: column;
+      & img {
+        width: 100%;
+        position: relative;
+      }
+      .data__container {
+        padding: 0;
+        & .plot__detail {
+          margin: 0;
+        }
+      }
+    }
+  }
+}

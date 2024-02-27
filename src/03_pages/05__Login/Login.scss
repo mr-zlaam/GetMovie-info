@@ -1,0 +1,49 @@
+@import "@styles";
+
+.login__container {
+  padding: 32px;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .login__card {
+    border-radius: 2rem;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 2px solid black;
+    box-shadow: 0 6px 12px 0 #888888;
+    .btn__container__login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .login__btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon {
+          margin: 0 2rem;
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 517px) {
+  .login__container {
+    .login__card {
+      .btn__container__login {
+        .login__btn {
+          font-size: $font_sm_5;
+          flex-direction: column;
+          gap: 1rem;
+          .icon {
+            margin: 1rem 0;
+          }
+        }
+      }
+    }
+  }
+}
