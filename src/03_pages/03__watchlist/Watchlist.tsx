@@ -3,8 +3,11 @@ import "./Watchlist.scss";
 import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../../10_firebase/firebase.config";
 import { type FilterMovieData } from "@/types";
+import WatchList__Card from "./watchlist__card/Watchlist__Card";
+import { Loader } from "@export";
 function Watchlist() {
   const currentUser = auth?.currentUser?.uid;
+  const [myDataisLoading, setMyDataisLoading] = useState(true);
   const [myMovieData, setmyMovieData] = useState<FilterMovieData[] | null>(
     null
   );
@@ -12,6 +15,7 @@ function Watchlist() {
     try {
       const MovieRefData = collection(db, "movie");
       const response = await getDocs(MovieRefData);
+      setMyDataisLoading(false);
       const watchlistData: FilterMovieData[] = [];
       response.forEach((docs) => {
         watchlistData.push({ id: docs.id, ...docs.data() });
@@ -22,6 +26,7 @@ function Watchlist() {
       setmyMovieData(filteredData);
     } catch (error) {
       console.log(error);
+      setMyDataisLoading(false);
     }
   };
   const handleRemoveWatchListData = async () => {};
@@ -33,15 +38,21 @@ function Watchlist() {
   }, [handleRemoveWatchListData]);
   return (
     <>
-      <section className="">
-        {myMovieData?.map((movie) => {
-          return (
-            <div key={movie?.id} className="watch-card">
-              {movie?.title}
-            </div>
-          );
-        })}
-      </section>
+      {!myDataisLoading ? (
+        <section className="all__movies__container">
+          {myMovieData?.length === 0 || undefined ? (
+            <div className="noresult__found">! No Result Found</div>
+          ) : (
+            myMovieData?.map((movieData) => (
+              <div key={movieData?.id} className="moviecard__grid">
+                <WatchList__Card movieData={movieData} />
+              </div>
+            ))
+          )}
+        </section>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }

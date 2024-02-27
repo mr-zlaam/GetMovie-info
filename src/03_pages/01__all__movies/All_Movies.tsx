@@ -32,7 +32,7 @@ function All_Movies() {
   >({
     queryKey: ["movies", pageNumber, query],
     queryFn: fetchMovies,
-    staleTime: 20000,
+    // staleTime: 20000,
     placeholderData: keepPreviousData,
   });
   // query parameter
