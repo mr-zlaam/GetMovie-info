@@ -1,10 +1,10 @@
 import { MoviesData } from "@/types";
-import { db } from "../../../10_firebase/firebase.config";
+import { auth, db } from "../../../10_firebase/firebase.config";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
-
 import { useState } from "react"; // Import useState if you need to manage state
 
 export const useSubmit = () => {
+  const currentUser = auth?.currentUser;
   const [submitStatus, setSubmitStatus] = useState<string | boolean | null>(
     null
   );
@@ -36,7 +36,9 @@ export const useSubmit = () => {
     if (!docExists) {
       sethandleLoading(true);
       try {
-        await addDoc(MovieRef, movie);
+        // Add the current user's ID to the movie data
+        const movieDataWithUser = { ...movie, uploadedBy: currentUser?.uid };
+        await addDoc(MovieRef, movieDataWithUser);
         !handleLoading &&
           setSubmitStatus("Added to watchlist successfully ✔️ ");
         setTimeout(() => {

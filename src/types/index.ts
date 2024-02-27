@@ -22,5 +22,5 @@ export interface MoviesData {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
-  id?: number;
+  id?: number | string;
 }
