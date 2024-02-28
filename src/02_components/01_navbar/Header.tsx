@@ -69,9 +69,11 @@ function Header() {
             </Fragment>
           ))}
         </nav>
-        <button onClick={handleLogout} className="btn__link">
-          Logout
-        </button>
+        {auth?.currentUser?.uid && (
+          <button onClick={handleLogout} className="btn__link">
+            Logout
+          </button>
+        )}
       </header>
     </>
   );
