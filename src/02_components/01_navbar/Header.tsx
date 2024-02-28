@@ -14,10 +14,7 @@ function Header() {
       name: "All Movies",
       path: "/",
     },
-    {
-      name: "Favorite",
-      path: "/favorite",
-    },
+
     {
       name: "Watch List",
       path: "/watchlist",
