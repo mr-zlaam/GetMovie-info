@@ -11,7 +11,6 @@ export const useSubmit = () => {
   const [handleLoading, sethandleLoading] = useState<boolean>(false);
 
   const handleSubmit = async (movie: MoviesData) => {
-    console.log("hello");
     const MovieRef = collection(db, "movie");
     const q = query(MovieRef, where("id", "==", movie?.id));
     let docExists = false;

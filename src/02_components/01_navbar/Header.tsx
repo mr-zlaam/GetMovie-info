@@ -8,6 +8,7 @@ import { auth } from "../../10_firebase/firebase.config";
 
 function Header() {
   const navigate = useNavigate();
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const Routes: Array<RouterProps> = [
     {
@@ -33,6 +34,8 @@ function Header() {
     navigate("/login");
     localStorage.removeItem("uid");
   };
+  const getdatalocalstorage = localStorage.getItem("uid");
+
   return (
     <>
       <header className="header__section">
@@ -69,7 +72,7 @@ function Header() {
             </Fragment>
           ))}
         </nav>
-        {auth?.currentUser?.uid && (
+        {getdatalocalstorage && (
           <button onClick={handleLogout} className="btn__link">
             Logout
           </button>
